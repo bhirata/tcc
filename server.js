@@ -8,7 +8,8 @@ var request = require('request');
 
 // Routes Path
 var route_user = require('./public/js/user.js');
-var route_chain = require('./public/js/registrar.js');
+var route_registrar = require('./public/js/registrar.js');
+var route_blockchain = require('./public/js/blockchain.js');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,7 +43,8 @@ app.use(express.static(__dirname + '/views'));
 app.post('/insertUser', route_user.insertUser);
 app.post('/getUser', route_user.getUser);
 app.post('/getAllUsers', route_user.getAllUsers);
-app.post('/teste1', route_chain.teste1);
+app.post('/validateUser', route_registrar.validateUser);
+app.post('/chain', route_blockchain.chain);
 
 
 var port = process.env.PORT || 3000;
